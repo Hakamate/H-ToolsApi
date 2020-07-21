@@ -17,3 +17,9 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+
+
+Route.group(() => {
+    Route.post('download', 'DownloadController.getMP4')
+    Route.get('tests', 'DownloadController.test')
+}).prefix('api')
