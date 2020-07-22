@@ -1,7 +1,7 @@
 'use strict'
 
 const fs = require('fs');
-const ytdl = require('youtube-dl');
+const Helpers = use('Helpers');
 const youtubedl = require('youtube-dl');
 
 class DownloadController {
@@ -41,15 +41,17 @@ class DownloadController {
        
         youtubedl.getInfo(link, options, function(err, info){
             if(err) throw err
-            console.log(info.title)
             title = info.title
+            const target = Helpers.publicPath(title + ".mp3")
     
             video.pipe(
-                response = fs.createWriteStream(title + ".mp3")
+                fs.createWriteStream(target)
             )
+            video.on('end', function() {
+                console.log(title, ' finished downloading !')
+                response.attachment(target)
+              })
         })
-
-        console.log('end')
     }
 }
 
