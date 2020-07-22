@@ -26,6 +26,8 @@
     "@adonisjs/lucid": "^6.2.0",
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
+    "fs": "0.0.1-security",
+    "youtube-dl": "^3.0.2",
     "ytdl-core": "^3.1.2"
   },
   "devDependencies": {},
