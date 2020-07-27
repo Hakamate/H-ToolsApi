@@ -1,7 +1,10 @@
 'use strict'
 
 const fs = require('fs');
+const path = require('path');
+const util = require('util');
 const Helpers = use('Helpers');
+const http = require('http')
 const youtubedl = require('youtube-dl');
 
 class DownloadController {
@@ -32,6 +35,10 @@ class DownloadController {
     }
 
     download({ request, response }) {
+        // response.setHeader('Content-Type', 'text/event-stream');
+        console.log("cc")
+        response.implicitEnd = false
+
         let title = null
         const options = []
         const req = request.all()
@@ -47,10 +54,28 @@ class DownloadController {
             video.pipe(
                 fs.createWriteStream(target)
             )
+
             video.on('end', function() {
                 console.log(title, ' finished downloading !')
-                response.attachment(target)
-              })
+                // response.send(target)
+                fs.readFile(target, (error, contents) => {
+                    response.send(contents)
+                  })
+
+                // http.createServer(function(request, response) {
+                //     var filePath = target;
+                //     var stat = fs.statSync(filePath);
+                
+                //     response.writeHead(200, {
+                //         'Content-Type': 'audio/mpeg',
+                //         'Content-Length': stat.size
+                //     });
+                
+                //     var readStream = fs.createReadStream(filePath);
+                //     readStream.pipe(response);
+                // })
+                // .listen(2000);
+            })
         })
     }
 }
