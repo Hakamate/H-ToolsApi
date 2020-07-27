@@ -21,5 +21,4 @@ Route.on('/').render('welcome')
 
 Route.group(() => {
     Route.post('download', 'DownloadController.download')
-    Route.get('tests', 'DownloadController.test')
 }).prefix('api')
