@@ -1,31 +1,21 @@
-# Adonis fullstack application
+# H-Ytb-Download-Serve
 
-This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
+**H-Ytb-Download-Serve** is a simple AdonisJs server to download youtube videos as MP3
 
-1. Bodyparser
-2. Session
-3. Authentication
-4. Web security middleware
-5. CORS
-6. Edge template engine
-7. Lucid ORM
-8. Migrations and seeds
+## Features
 
-## Setup
+| Feature  |  Coded       | Description  |
+|----------|:-------------:|:-------------|
+| Download MP3 | &#10004; | Convert Youtube video and convert it to MP3 |
+| Find | &#10060; | Find youtube vidéo |
 
-Use the adonis command to install the blueprint
+## How to build setup
 
 ```bash
-adonis new yardstick
+# install dependencies
+$ npm install
+
+# serve at localhost:3333
+$ npm start
 ```
 
-or manually clone the repo and then run `npm install`.
-
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
-```
