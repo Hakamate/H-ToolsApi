@@ -1,6 +1,6 @@
 # H-Ytb-Download-Serve
 
-**H-Ytb-Download-Serve** is a simple AdonisJs server to download youtube videos as MP3
+**H-Ytb-Download-Serve** is a simple AdonisJs server to download youtube videos as MP3. Can see an example of integration at [H-Ytb-Download-APP](https://github.com/Hakamate/H-Ytb-Dowload-APP)
 
 ## Features
 
